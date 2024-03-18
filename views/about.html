@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="synthwave">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css" />
+  <title>Lego Collection About</title>
+</head>
+<body>
+  <header>
+<!--Navbar-->
+  <div class="navbar bg-base-100">
+    <div class="flex-1">
+      <ul class="list-none">
+        <li><a href="./" class="btn btn-ghost normal-case text-xl">Lego Collection</a></li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <label tabindex="0" class="btn btn-ghost sm:hidden"></label>
+      <ul tabindex="0" class="menu menu-sm dropdown-content right-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+      <li><a class="active" href="./about">About</a></li><!-- About Link -->
+        <li>
+          <details>
+            <summary>
+              Theme
+            </summary>
+            <ul class="p-2 bg-base-100">
+              <li><a href="/lego/sets?theme=Freestyle">Freestyle</a></li>
+              <li><a href="/lego/sets?theme=Brickheadz">Brickheadz</a></li>
+              <li><a href="/lego/sets?theme=Dinosaurs">Dinosaurs</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-center hidden sm:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a class="active" href="./about">About</a></li>
+        <li>
+          <details>
+            <summary>Theme</summary>
+            <ul class="p-2 bg-base-100 right-0">
+              <li><a href="/lego/sets?theme=Freestyle">Freestyle</a></li>
+              <li><a href="/lego/sets?theme=Brickheadz">Brickheadz</a></li>
+              <li><a href="/lego/sets?theme=Dinosaurs">Dinosaurs</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container mx-auto">
+    <div class="hero bg-base-200">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">About</h1>
+          <p class="py-6">Get to know the developer behind this site!</p>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <figure>
+        <img class="w-full rounded-lg" src="/img/WhoKnockedMyOnions.jfif" alt="profile">
+        <figcaption> This is my favorite picture of a cat (he knocked over the onions)</figcaption>
+      </figure>
+
+      </div>
+      <div class="prose">
+
+        <p>My name is Angelo Gatto and I am currently a student at Seneca Polytechnic. Before I began my journey of becoming a developer, I was working in construction as a tilesetter in downtown Toronto. </p>
+        <p>I am currently enrolled in my 3rd semester of the CPA program with courses focusing on object oriented programming with C++, Web Development and Database Systems with SQL.</p>
+        <p> Outside of school, my hobbies include creating and selling handmade custom rugs, playing video games, and going to raves. </p>
+
+      </div>
+
+    </div>

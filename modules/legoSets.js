@@ -44,7 +44,13 @@ function getAllSets()
   return new Promise(function(resolve, reject)
   {
     if (sets && sets.length > 0) // checks if sets array is not empty
+    {temp = sets; 
+    for (let i = 0; i < temp.length; i++) // converts all sets themes to be Uppercase
+    {
+      temp[i].theme = temp[i].theme.toUpperCase();
+    }
       resolve(sets);
+  }
     else 
       reject("Cant Get All Sets.");
   });
@@ -70,18 +76,18 @@ function getSetsByTheme(theme)
 {
   return new Promise(function(resolve,reject)
   {
-    let lowerTheme = theme.toLowerCase(); // converts theme to lowercase
+    let UpperTheme = theme.toUpperCase(); // converts theme to Uppercase
     let temp = [];
     if(sets && sets.length > 0) // checks if sets was initialized
     {
       temp = sets; 
-      for (let i = 0; i < temp.length; i++) // converts all sets themes to be lowercase
+      for (let i = 0; i < temp.length; i++) // converts all sets themes to be Uppercase
       {
-        temp[i].theme = temp[i].theme.toLowerCase();
+        temp[i].theme = temp[i].theme.toUpperCase();
       }
       // Assigns temp to a new array of objects only if the string passed through matches fully / partially to set themes.
       //temp = temp.filter((temp) => temp.theme.includes(lowerTheme));
-      temp = temp.filter((temp) => temp.theme === lowerTheme);
+      temp = temp.filter((temp) => temp.theme === UpperTheme);
 
       if(temp.length > 0) // temp will be larger than 0 if matching strings found
       {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="synthwave">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css" />
+  <title>Lego Collection About</title>
+</head>
+<body>
+  <%- include('partials/navbar', {page: '/about'}) %>
+<!-- Hero -->
+  <div class="container mx-auto">
+    <div class="hero bg-base-200">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">About</h1>
+          <p class="py-6">Get to know the developer behind this site!</p>
+        </div>
+      </div>
+    </div>
+    <br>
+<!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <figure>
+        <img class="w-full rounded-lg" src="/img/WhoKnockedMyOnions.jfif" alt="profile">
+        <figcaption> This is my favorite picture of a cat (he knocked over the onions)</figcaption>
+      </figure>
+
+      </div>
+      <div class="prose">
+
+        <p>My name is Angelo Gatto and I am currently a student at Seneca Polytechnic. Before I began my journey of becoming a developer, I was working in construction as a tilesetter in downtown Toronto. </p>
+        <p>I am currently enrolled in my 3rd semester of the CPA program with courses focusing on object oriented programming with C++, Web Development and Database Systems with SQL.</p>
+        <p> Outside of school, my hobbies include creating and selling handmade custom rugs, playing video games, and going to raves. </p>
+
+      </div>
+
+    </div>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css" />
+  <title>Edit Set: <%= set.name%>
+  </title>
+</head>
+
+<body>
+  <navbar><%- include('partials/navbar', {page: '' }) %></navbar>
+  <!-- Hero -->
+  <div class="container mx-auto">
+    <div class="hero bg-base-200">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">Edit Set: <%= set.name%>
+          </h1>
+          <p class="py-6">Use the below form to update the <%= set.name%> Set</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- Form -->
+    <form method="post" action="/lego/editSet">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-0">
+        <div>
+          <div class="mb-6">
+            <label for="name" class="block text-gray-700 font-medium">Name</label>
+            <input type="text" id="name" name="name"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300" required
+              value="<%= set.name%>">
+          </div>
+          <div class="mb-6">
+            <label for="year" class="block text-gray-700 font-medium">Year</label>
+            <input type="number" id="year" name="year"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300" required
+              value="<%= set.year%>">
+          </div>
+        </div>
+        <div>
+          <div class="mb-6">
+            <label for="num_parts" class="block text-gray-700 font-medium">Number Of Parts</label>
+            <input type="number" name="num_parts" id="num_parts"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300" required
+              value="<%= set.num_parts%>">
+          </div>
+          <div class="mb-6">
+            <label for="img_url" class="block text-gray-700 font-medium">Image URL</label>
+            <input type="url" name="img_url" id="img_url"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300" required
+              value="<%= set.img_url%>">
+          </div>
+        </div>
+        <div>
+          <div class="mb-6">
+            <label for="theme_id" class="block text-gray-700 font-medium">Theme</label>
+            <select name="theme_id" id="theme_id"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300" required>
+              <% themes.forEach(theme=> { %>
+                <option <%=(set.theme_id==theme.id) ? "selected" : '' %> value="<%= theme.id %>">
+                    <%= theme.name %>
+                </option>
+                <% }) %>
+            </select>
+          </div>
+          <div class="mb-6">
+            <label for="setNum" class="block text-gray-700 font-medium">Set Num</label>
+            <input type="text" name="setNum" id="setNum"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300" required readonly
+              value="<%= set.setNum%>">
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <button type="submit" class="btn btn-success ">Update Set</button>
+        <a class="btn btn-error" href="/lego/deleteSet/<%= set.setNum %>">Delete Set</a>
+      </div>
+    </form>

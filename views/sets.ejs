@@ -1,57 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="synthwave">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/main.css" />
   <title>Lego Collection Sets</title>
 </head>
+
 <body>
-  <%- include('partials/navbar', {page: '/lego/sets'}) %>
+  <%- include('partials/navbar', {page: '/lego/sets' }) %>
     <!-- Hero -->
-  <div class="container mx-auto">
-    <div class="hero bg-base-200">
-      <div class="hero-content text-center">
-        <div class="max-w-md">
-          <h1 class="text-5xl font-bold">Collection</h1>
-          <p class="py-6">Browse the entire collection. Click the theme to filter by themes such as : 
-            <a href="/lego/sets?theme=Freestyle" class="btn btn-primary btn-xs">FREESTYLE</a>
-            <a href="/lego/sets?theme=BrickHeadz" class="btn btn-primary btn-xs">BRICKHEADZ</a>
-            <a href="/lego/sets?theme=Dinosaurs" class="btn btn-primary btn-xs">DINOSAURS</a>
-          </p>
+    <div class="container mx-auto">
+      <div class="hero bg-base-200">
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Collection</h1>
+            <p class="py-6">Browse the entire collection. Click the theme to filter by themes such as :
+              <a href="/lego/sets?theme=Freestyle" class="btn btn-primary btn-xs">FREESTYLE</a>
+              <a href="/lego/sets?theme=BrickHeadz" class="btn btn-primary btn-xs">BRICKHEADZ</a>
+              <a href="/lego/sets?theme=Dinosaurs" class="btn btn-primary btn-xs">DINOSAURS</a>
+            </p>
+          </div>
         </div>
       </div>
+
+      <br>
+      <!-- Table Data -->
+
+      <table class="table table-zebra">
+        <tbody>
+          <% for (const legoSet of sets) {%>
+            <tr>
+              <!-- Image -->
+              <td>
+                <div class="avatar">
+                  <div class="w-24 rounded">
+                    <img src="<%= legoSet.img_url %>" alt="image" />
+                  </div>
+                </div>
+              </td>
+              <!-- Name -->
+              <td>
+                <%= legoSet.name %>
+              </td>
+              <!-- Theme -->
+              <td><a href="/lego/sets?theme=<%= legoSet.Theme.name %>" class="btn  mt-2 btn-xs">
+                  <%= legoSet.Theme.name %>
+                </a></td>
+              <!-- Year  -->
+              <td><b>Year: </b>
+                <%= legoSet.year %>
+              </td>
+              <!-- Number of Parts -->
+              <td><b>Parts: </b>
+                <%= legoSet.num_parts %>
+              </td>
+              <!-- Details -->
+              <td><a href="/lego/sets/<%= legoSet.setNum %>" class="btn  mt-2 btn-xs">Details</a></td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+
+
     </div>
-
-  <br>
-  <!-- Table Data -->
-
-  <table class="table table-zebra">
-    <tbody>
-  <% for (const legoSet of sets) {%>
-    <tr>
-      <!-- Image -->
-      <td> 
-      <div class="avatar">
-        <div class="w-24 rounded">
-          <img src="<%= legoSet.img_url %>" alt="image"/>
-        </div>
-      </div>
-      </td>
-      <!-- Name -->
-      <td> <%= legoSet.name %></td>
-      <!-- Theme -->
-      <td><a href="/lego/sets?theme=<%= legoSet.theme %>" class="btn  mt-2 btn-xs"><%= legoSet.theme %></a></td>
-      <!-- Year  -->
-      <td><b>Year: </b><%= legoSet.year %></td>
-      <!-- Number of Parts -->
-      <td><b>Parts: </b><%= legoSet.num_parts %></td>
-      <!-- Details -->
-      <td><a href="/lego/sets/<%= legoSet.set_num %>" class="btn  mt-2 btn-xs">Details</a></td>
-    </tr>
-  <% } %>
-</tbody>
-</table>
-
-
-</div>

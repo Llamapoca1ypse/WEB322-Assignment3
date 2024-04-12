@@ -1,57 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="synthwave">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/main.css" />
-  <title><%= set.name%></title> 
+  <title>
+    <%= set.name%>
+  </title>
 </head>
+
 <body>
-  <%- include('partials/navbar', {page: ""}) %>
-<!-- Hero -->
-  <div class="container mx-auto">
-    <div class="hero bg-base-200">
-      <div class="hero-content text-center">
-        <div class="max-w-md">
-          <h1 class="text-5xl font-bold"><%= set.name%></h1>
-          <p class="py-6">Below, you will find detailed information about the set: <%= set.name%></p>
+  <%- include('partials/navbar', {page: "" }) %>
+    <!-- Hero -->
+    <div class="container mx-auto">
+      <div class="hero bg-base-200">
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold">
+              <%= set.name%>
+            </h1>
+            <p class="py-6">Below, you will find detailed information about the set: <%= set.name%>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <br>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div>
-        <img class="w-full rounded-lg" src="<%= set.img_url%>" alt=" Set Image">
+      <br>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <img class="w-full rounded-lg" src="<%= set.img_url%>" alt=" Set Image">
+        </div>
+        <div class="prose">
+          <p>
+            <span><b>Set Name: </b></span>
+            <%= set.name%>
+              <br>
+              <span><b>Year Released: </b></span>
+              <%= set.year%>
+                <br>
+                <span><b>Theme: </b></span>
+                <%= set.Theme.name%>
+                  <br>
+                  <span><b>Number of Parts: </b></span>
+                  <%= set.num_parts%>
+                    <br>
+                    <br>
+                    <span id="content"></span>
+                    <br>
+                    <span id="author"></span>
+                    <br>
+                    <a class="btn btn-success" href="/lego/editSet/<%= set.setNum %>">Edit Set</a>
+                    <a class="btn btn-primary " href="#" onclick="history.back(); return false;">RETURN</a>
+          </p>
+        </div>
       </div>
-      <div class="prose">
-        <p>
-        <span><b>Set Name: </b></span><%= set.name%>
-        <br>
-        <span><b>Year Released: </b></span><%= set.year%>
-        <br>
-        <span><b>Theme: </b></span><%= set.theme%> 
-        <br>
-        <span><b>Number of Parts: </b></span><%= set.num_parts%> 
-        <br>
-        <br>
-        <span id="content"></span>
-        <br>
-        <span id="author"></span>
-        <br>
-        <a class="btn btn-primary btn-sm" href="#" onclick="history.back(); return false;">RETURN</a>
-        </p>
-      </div>
-    </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", ()=>
-      {
-        fetch('https://quotable.io/random')
-        .then(response => response.json())
-        .then(data => {
-          const content = '"' + data.content + '"';
-          const author = '- ' + data.author;
-          document.getElementById('content').textContent = content;
-          document.getElementById('author').textContent = author;
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          fetch('https://quotable.io/random')
+            .then(response => response.json())
+            .then(data => {
+              const content = '"' + data.content + '"';
+              const author = '- ' + data.author;
+              document.getElementById('content').textContent = content;
+              document.getElementById('author').textContent = author;
+            });
         });
-      });
-    </script>
+      </script>

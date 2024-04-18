@@ -1,30 +1,36 @@
 /********************************************************************************
- * WEB322 – Assignment 05
- *
- * I declare that this assignment is my own work in accordance with Seneca's
- * Academic Integrity Policy:
- *
- * https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
- *
- * Name: Angelo Gatto Student ID: 017019159 Date: April 11 2024
- *
- * Published URL: https://bored-cod-dungarees.cyclic.app
- *
- ********************************************************************************/
+* WEB322 – Assignment 06
+* 
+* I declare that this assignment is my own work in accordance with Seneca College's
+* Academic Integrity Policy:
+* 
+* https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
+* 
+* Name: Angelo Gatto Student ID: 017019159 Date: April 18 2024
+*
+* GitHub Repository URL: https://github.com/Llamapoca1ypse/WEB322-Assignment3
+* Published URL: https://bored-cod-dungarees.cyclic.app
+*
+********************************************************************************/
+
+
+
+
 // Formatted using Prettier
 const legoData = require("./modules/legoSets");
-
 legoData.Initialize();
 
 const express = require("express"); // "require" the Express module
 const app = express(); // obtain the "app" object
-const HTTP_PORT = process.env.PORT || 8080; // assign a port
+const PORT = process.env.PORT || 8080; // assign a port
 
 // Settin view engine to EJS
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true })); // urlenconded middleware
 
-app.listen(HTTP_PORT, () => console.log(`server listening on: ${HTTP_PORT}`));
+app.listen(PORT, () => console.log(`server listening on: ${PORT}`));
+
+
 
 // All requests will go through public directory
 app.use(express.static("public"));
@@ -48,6 +54,7 @@ app.get("/lego/sets", (req, res) => {
     sets = legoData.getSetsByTheme(theme);
   } else {
     sets = legoData.getAllSets();
+    
   }
 
   sets

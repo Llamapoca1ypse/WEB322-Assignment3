@@ -139,7 +139,7 @@ async function Initialize()
     if (mongoose.connection.readyState === 1) 
     {
       const db = mongoose.connection;
-      console.log('Connected to MongoDB database:', db.name);
+        console.log('Connected to MongoDB database:', db.name);
         console.log("Mongo Connection Successful");
     } 
     else 
@@ -162,12 +162,13 @@ function getAllSets() {
       
       // Gets All sets
       const sets = await Set.find({}).exec();
+
       console.log(sets);
       resolve(sets);
     } 
     catch (error) 
     {
-      reject(new Error("Unable to retrieve sets."));
+      reject("Unable to retrieve sets.");
     }
   });
 }

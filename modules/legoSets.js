@@ -65,7 +65,7 @@ function getAllSets() {
 
       console.log(sets);
       resolve(sets);
-    } catch (error) {
+    } catch {
       reject("Unable to retrieve sets.");
     }
   });
@@ -135,6 +135,7 @@ function getAllThemes() {
   });
 }
 
+// Mongo Implementation
 function editSet(setno, data) {
   return new Promise(async (resolve, reject) => {
     try {

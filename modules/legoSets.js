@@ -5,9 +5,6 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
-const setData = require("../data/setData");
-const themeData = require("../data/themeData");
-
 // Theme Schema
 const themeSchema = new Schema(
   {

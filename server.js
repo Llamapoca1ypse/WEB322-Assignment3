@@ -1,20 +1,17 @@
 /********************************************************************************
-* WEB322 – Assignment 06
-* 
-* I declare that this assignment is my own work in accordance with Seneca College's
-* Academic Integrity Policy:
-* 
-* https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
-* 
-* Name: Angelo Gatto Student ID: 017019159 Date: April 18 2024
-*
-* GitHub Repository URL: https://github.com/Llamapoca1ypse/WEB322-Assignment3
-* Published URL: https://bored-cod-dungarees.cyclic.app
-*
-********************************************************************************/
-
-
-
+ * WEB322 – Assignment 06
+ *
+ * I declare that this assignment is my own work in accordance with Seneca College's
+ * Academic Integrity Policy:
+ *
+ * https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
+ *
+ * Name: Angelo Gatto Student ID: 017019159 Date: April 18 2024
+ *
+ * GitHub Repository URL: https://github.com/Llamapoca1ypse/WEB322-Assignment3
+ * Published URL: https://bored-cod-dungarees.cyclic.app
+ *
+ ********************************************************************************/
 
 // Formatted using Prettier
 const legoData = require("./modules/legoSets");
@@ -29,8 +26,6 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true })); // urlenconded middleware
 
 app.listen(PORT, () => console.log(`server listening on: ${PORT}`));
-
-
 
 // All requests will go through public directory
 app.use(express.static("public"));
@@ -54,7 +49,6 @@ app.get("/lego/sets", (req, res) => {
     sets = legoData.getSetsByTheme(theme);
   } else {
     sets = legoData.getAllSets();
-    
   }
 
   sets
@@ -62,11 +56,9 @@ app.get("/lego/sets", (req, res) => {
       res.render("sets", { sets: lego });
     })
     .catch(function (err) {
-      res
-        .status(404)
-        .render("404", {
-          message: `Unable to find requested set due to error: ${err}`,
-        });
+      res.status(404).render("404", {
+        message: `Unable to find requested set due to error: ${err}`,
+      });
     });
 });
 
@@ -79,11 +71,9 @@ app.get("/lego/sets/:setNum", (req, res) => {
       res.render("set", { set: lego });
     })
     .catch(function (err) {
-      res
-        .status(404)
-        .render("404", {
-          message: `Unable to find requested set due to error: ${err}`,
-        });
+      res.status(404).render("404", {
+        message: `Unable to find requested set due to error: ${err}`,
+      });
     });
 });
 
